@@ -64,7 +64,6 @@ void DynamicArray::reset() {
     arr = temp;
     start = arr;
     top = start;
-
 }
 
 DynamicArray::~DynamicArray() {

@@ -31,5 +31,4 @@ int main() {
     cout << "The array at index 1 is " << array.get_element_at_index(1) << endl;
     cout << "The array at index 2 is " << array.get_element_at_index(2) << endl;
 
-
 }

@@ -1,5 +1,4 @@
 #pragma once
-// using namespace std;
 
 class DynamicArray {
 
@@ -13,11 +12,10 @@ private:
 
 public:
     DynamicArray();
-    ~DynamicArray(); // Destructor added
+    ~DynamicArray(); // Destructor
     void append_element(int element);
     int get_element_at_index(int index);
     int size_of();
     void reset();
-
     
 };
