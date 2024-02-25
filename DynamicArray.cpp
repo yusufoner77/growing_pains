@@ -3,11 +3,10 @@
 using namespace std;
 
 DynamicArray::DynamicArray() {
-    size = 1;
+    size = 0;
     arr = new int[size];
     start = arr;
     top = start;
-    
 }
 
 int DynamicArray::size_of() {
@@ -48,7 +47,6 @@ void DynamicArray::append_element(int element) {
 }
 
 int DynamicArray::get_element_at_index(int index) {
-    
     if (index < 0 || index > size - 1)
     {
       return 0;
@@ -57,6 +55,16 @@ int DynamicArray::get_element_at_index(int index) {
     {
       return *(start + index);
     }
+}
+
+void DynamicArray::reset() {
+    size = 0;
+    int *temp = new int[size];
+    delete arr;
+    arr = temp;
+    start = arr;
+    top = start;
+
 }
 
 DynamicArray::~DynamicArray() {
