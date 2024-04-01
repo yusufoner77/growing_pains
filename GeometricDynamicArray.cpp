@@ -1,20 +1,20 @@
-#include "DynamicArray.hpp"
+#include "GeometricDynamicArray.hpp"
 #include <iostream>
 using namespace std;
 
-DynamicArray::DynamicArray() {
+GeometricDynamicArray::GeometricDynamicArray() {
     size = 1;
     arr = new int[size];
     start = arr;
     top = start;
 }
 
-int DynamicArray::size_of() {
+int GeometricDynamicArray::size_of() {
     return size;
 }
 
-void DynamicArray::resize_array() {
-    int *temp = new int[size + 1];
+void GeometricDynamicArray::resize_array() {
+    int *temp = new int[size * 2];
 
     for (int i = 0; i < size; i++)
     {
@@ -27,11 +27,11 @@ void DynamicArray::resize_array() {
     start = arr;
     top = start + size;
 
-    size = size + 1;
+    size = size * 2;
       
 }
 
-void DynamicArray::append_element(int element) {
+void GeometricDynamicArray::append_element(int element) {
     if (start + size == top) {
         resize_array();
         *top = element;
@@ -46,7 +46,7 @@ void DynamicArray::append_element(int element) {
     }
 }
 
-int DynamicArray::get_element_at_index(int index) {
+int GeometricDynamicArray::get_element_at_index(int index) {
     if (index < 0 || index > size - 1)
     {
       return 0;
@@ -57,7 +57,7 @@ int DynamicArray::get_element_at_index(int index) {
     }
 }
 
-void DynamicArray::reset() {
+void GeometricDynamicArray::reset() {
     size = 1;
     int *temp = new int[size];
     delete arr;
@@ -66,6 +66,6 @@ void DynamicArray::reset() {
     top = start;
 }
 
-DynamicArray::~DynamicArray() {
+GeometricDynamicArray::~GeometricDynamicArray() {
     delete[] arr; // Release the allocated memory in the destructor
 }

@@ -1,20 +1,21 @@
-#include "DynamicArray.hpp"
+#include "ArithmeticDynamicArray.hpp"
 #include <iostream>
 using namespace std;
 
-DynamicArray::DynamicArray() {
+ArithmeticDynamicArray::ArithmeticDynamicArray(int growth_factor) {
     size = 1;
+    this->growth_factor = growth_factor;
     arr = new int[size];
     start = arr;
     top = start;
 }
 
-int DynamicArray::size_of() {
+int ArithmeticDynamicArray::size_of() {
     return size;
 }
 
-void DynamicArray::resize_array() {
-    int *temp = new int[size + 1];
+void ArithmeticDynamicArray::resize_array() {
+    int *temp = new int[size + growth_factor];
 
     for (int i = 0; i < size; i++)
     {
@@ -27,11 +28,11 @@ void DynamicArray::resize_array() {
     start = arr;
     top = start + size;
 
-    size = size + 1;
+    size = size + growth_factor;
       
 }
 
-void DynamicArray::append_element(int element) {
+void ArithmeticDynamicArray::append_element(int element) {
     if (start + size == top) {
         resize_array();
         *top = element;
@@ -46,7 +47,7 @@ void DynamicArray::append_element(int element) {
     }
 }
 
-int DynamicArray::get_element_at_index(int index) {
+int ArithmeticDynamicArray::get_element_at_index(int index) {
     if (index < 0 || index > size - 1)
     {
       return 0;
@@ -57,7 +58,7 @@ int DynamicArray::get_element_at_index(int index) {
     }
 }
 
-void DynamicArray::reset() {
+void ArithmeticDynamicArray::reset() {
     size = 1;
     int *temp = new int[size];
     delete arr;
@@ -66,6 +67,6 @@ void DynamicArray::reset() {
     top = start;
 }
 
-DynamicArray::~DynamicArray() {
+ArithmeticDynamicArray::~ArithmeticDynamicArray() {
     delete[] arr; // Release the allocated memory in the destructor
 }

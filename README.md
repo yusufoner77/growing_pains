@@ -5,4 +5,6 @@ This program implements a dynamic array data structure that can store integers. 
 In order to run this program, you must be able to compile and run C++ programs on your machine.
 
 To run the program:
-g++ DynamicArray.cpp main.cpp && ./a.out
+```bash
+g++ DynamicArray.cpp ArithmeticDynamicArray.cpp GeometricDynamicArray.cpp main.cpp && ./a.out
+```
